@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="base.css">
 	<link rel="stylesheet" href="skeleton.css">
 	<link rel="stylesheet" href="layout.css">
-        <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -33,21 +33,25 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 <style type="text/css">
-  h3 {
-    color: #fff; 
-    font-family: 'Leckerli One', Arial, serif; font-weight: 400;
+h3 {
+  color: #fff; 
+  font-family: 'Lustria', Arial, serif; font-size: 12px; font-weight: 100;
 }
-  a, a:hover, a:visited {
-    color:#FFF;
+h5 {
+
+}
+a, a:hover, a:visited {
+  color:#FFF;
 }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="sixteen columns">
-    <h1 class="remove-bottom" style="margin-top: 20px"><a href="/"><img src="images/logo.png" /></a></h1>
+    <h1 class="remove-bottom" style="margin-top: 10px"><a href="/"><img src="images/logo.png" /></a></h1>
     <% if current_user %>
-    <h5><a href="/signout">Sign Out</a></h5>
+    <h3>Signed into Twitter as: <%= current_user.nickname %> | <a href="/signout">Sign Out</a> | <a href="/books">Only books</a> | <a href="movies">Only movies</a></h3>
+    <br />
     <% else %>
     <h5><a href="/signin">Sign In</a></h5>
     <% end %>

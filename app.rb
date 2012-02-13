@@ -23,12 +23,11 @@ class Note
     property :complete, Boolean, :required => true, :default => false
     property :created_at, DateTime
     property :updated_at, DateTime
-    belongs_to :user, :required => false
+    belongs_to :user, :required => true
 end
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
-APP_TITLE = "Mocknote"
 
 use OmniAuth::Strategies::Twitter, 'l0kAScjfkrGN970LCRcwg', 'F5B5BZQCxcJGFts0OPAVmBCwQJYwUOpBJjT12oT5CA'
 
@@ -107,7 +106,7 @@ get '/books' do
 end
 
 get '/movies' do
-  @notes = Note.all(:user_id => current_user.id) & Note.all(:content.downcase.like => '%book%')
+  @notes = Note.all(:user_id => current_user.id) & Note.all(:content.downcase.like => '%movie%')
   @title = 'Movies you want to see.'
   erb :movies
 end
