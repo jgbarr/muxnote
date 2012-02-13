@@ -8,7 +8,7 @@
 	<!-- Basic Page Needs
   ================================================== -->
 	<meta charset="utf-8">
-	<title>Mocknote</title>
+	<title>Muxnote</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="base.css">
 	<link rel="stylesheet" href="skeleton.css">
 	<link rel="stylesheet" href="layout.css">
-
+        <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -32,24 +32,30 @@
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+<style type="text/css">
+  h3 {
+    color: #fff; 
+    font-family: 'Leckerli One', Arial, serif; font-weight: 400;
+}
+  a, a:hover, a:visited {
+    color:#FFF;
+}
+</style>
 </head>
 <body>
 <div class="container">
   <div class="sixteen columns">
-    <h1 class="remove-bottom" style="margin-top: 40px"><a href="/"><img src="images/logo.png" /></a></h1>
-    <hr />
+    <h1 class="remove-bottom" style="margin-top: 20px"><a href="/"><img src="images/logo.png" /></a></h1>
+    <% if current_user %>
+    <h5><a href="/signout">Sign Out</a></h5>
+    <% else %>
+    <h5><a href="/signin">Sign In</a></h5>
+    <% end %>
 </div>
-  <div class="one-third column">
-      <p>&nbsp;</p>
-  </div>
-  <div class="one-third column">
+  <div class="sixteen columns">
      <%= yield %>
   </div>
-  <div class="one-third column">
-   <p>&nbsp;</p>
-  </div>
 </div>
-
 
 </body>
 </html>

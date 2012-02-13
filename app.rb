@@ -3,7 +3,7 @@ require 'sinatra'
 require 'dm-core'
 require 'dm-migrations'
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/database.db")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/data2.db")
 
 class User
   include DataMapper::Resource
@@ -40,30 +40,9 @@ helpers do
   end
 end
 
-get '/' do
-  if current_user
-    # The following line just tests to see that it's working.
-    #   If you've logged in your first user, '/' should load: "1 ... 1";
-    #   You can then remove the following line, start using view templates, etc.
-    #current_user.id.to_s + " ... " + session[:user_id].to_s
-    redirect '/all'
-  else
-    '<a href="/sign_up">create an account</a> or <a href="/sign_in">sign in with Twitter</a>'
-    # if you replace the above line with the following line, 
-    #   the user gets signed in automatically. Could be useful. 
-    #   Could also break user expectations.
-    # redirect '/auth/twitter'
-  end
-end
-
 get '/auth/:name/callback' do
   auth = request.env['omniauth.auth']
-puts "AUTH #{auth}"
-puts "AUTH #{auth['uid']}"
-puts "AUTH #{auth['user_info']['name']}"
-puts "AUTH #{auth['user_info']['nickname']}"
-#current_user.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
- user = User.first_or_create({ :uid => auth["uid"]}, {
+  user = User.first_or_create({ :uid => auth["uid"]}, {
   :uid => auth["uid"],
   :name => auth["user_info"]["name"],
   :nickname => auth["user_info"]["nickname"],
@@ -88,12 +67,14 @@ end
   end
 end
 
-
-#get '/' do
-#  @notes = MockNote.all :order => :id.desc
-#  @title = APP_TITLE
-#  erb :home
-#end
+get '/' do
+  if current_user
+    redirect '/all'
+  else
+   # '<a href="/sign_up">create an account</a> or <a href="/sign_in">sign in with Twitter</a>'
+    redirect '/home'
+  end
+end
 
 post '/' do
   n = Note.new
@@ -115,20 +96,25 @@ put '/:id' do
   redirect '/all'
 end
 
+get '/home' do
+  erb :home
+end
+
 get '/books' do
-  @notes = Note.all( :content.like => '%book%')
+  @notes = Note.all(:user_id => current_user.id) & Note.all(:content.downcase.like => '%book%')
   @title = 'Books you want to read.'
   erb :books
 end
 
 get '/movies' do
-  @notes = Note.all( :content.like => '%movie%')
+  @notes = Note.all(:user_id => current_user.id) & Note.all(:content.downcase.like => '%book%')
   @title = 'Movies you want to see.'
   erb :movies
 end
 
 get '/all' do
-  @notes = Note.all :order => :id.desc  
+  puts "Curren user is #{current_user.id}"
+  @notes = Note.all(:conditions => { :user_id => current_user.id })  
   @title = "All notes"
   erb :all
 end
