@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/intridea/omniauth.git
+  revision: 7cc0a8b00c15a8fd4cb58e19ad321c36fd2990a3
+  specs:
+    omniauth (1.0.2)
+      hashie (~> 1.2)
+      rack
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -62,9 +70,6 @@ GEM
     json_pure (1.6.5)
     multi_json (1.0.4)
     oauth (0.4.5)
-    omniauth (1.0.2)
-      hashie (~> 1.2)
-      rack
     omniauth-oauth (1.0.0)
       oauth
       omniauth (~> 1.0)
@@ -93,7 +98,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-sqlite-adapter
-  omniauth
+  omniauth!
   omniauth-twitter
   pg
   rack-flash
