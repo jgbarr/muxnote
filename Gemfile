@@ -4,8 +4,8 @@ gem 'data_mapper'
 gem 'dm-core'
 gem 'dm-migrations'
 gem 'rack-flash'
-gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
-gem 'oa-oauth'
+#gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
+gem 'omniauth-twitter'
 
 group :development do
   gem 'dm-sqlite-adapter'
@@ -16,3 +16,4 @@ group :production do
   gem 'pg'
   gem 'dm-postgres-adapter'
 end
+

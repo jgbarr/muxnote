@@ -64,29 +64,11 @@ GEM
       data_objects (= 0.10.8)
     do_sqlite3 (0.10.8)
       data_objects (= 0.10.8)
-    faraday (0.7.6)
-      addressable (~> 2.2)
-      multipart-post (~> 1.1)
-      rack (~> 1.1)
     fastercsv (1.5.4)
     hashie (1.2.0)
     json (1.6.5)
     json_pure (1.6.5)
     multi_json (1.0.4)
-    multi_xml (0.4.1)
-    multipart-post (1.1.5)
-    oa-core (0.3.2)
-    oa-oauth (0.3.2)
-      faraday (~> 0.7.3)
-      multi_json (~> 1.0.0)
-      multi_xml (~> 0.4.0)
-      oa-core (= 0.3.2)
-      oauth (~> 0.4.0)
-      oauth2 (~> 0.5.0)
-    oauth (0.4.5)
-    oauth2 (0.5.2)
-      faraday (~> 0.7)
-      multi_json (~> 1.0)
     pg (0.13.1)
     rack (1.4.1)
     rack-flash (0.1.2)
@@ -110,7 +92,6 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-sqlite-adapter
-  oa-oauth
   omniauth!
   pg
   rack-flash
