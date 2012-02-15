@@ -5,7 +5,7 @@ gem 'dm-core'
 gem 'dm-migrations'
 gem 'rack-flash'
 #gem 'omniauth', :git => 'git://github.com/intridea/omniauth.git'
-gem 'omniauth'
+gem 'omniauth-twitter'
 
 group :development do
   gem 'dm-sqlite-adapter'

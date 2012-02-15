@@ -61,9 +61,15 @@ GEM
     json (1.6.5)
     json_pure (1.6.5)
     multi_json (1.0.4)
+    oauth (0.4.5)
     omniauth (1.0.2)
       hashie (~> 1.2)
       rack
+    omniauth-oauth (1.0.0)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-twitter (0.0.8)
+      omniauth-oauth (~> 1.0)
     pg (0.13.1)
     rack (1.4.1)
     rack-flash (0.1.2)
@@ -87,7 +93,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-sqlite-adapter
-  omniauth
+  omniauth-twitter
   pg
   rack-flash
   sinatra
