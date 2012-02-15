@@ -77,9 +77,9 @@ GEM
     rack-protection (1.2.0)
       rack
     sinatra (1.3.2)
-      rack (~> 1.3, >= 1.3.6)
+      rack (>= 1.3.6, ~> 1.3)
       rack-protection (~> 1.2)
-      tilt (~> 1.3, >= 1.3.3)
+      tilt (>= 1.3.3, ~> 1.3)
     stringex (1.3.0)
     tilt (1.3.3)
     uuidtools (2.1.2)
@@ -93,6 +93,7 @@ DEPENDENCIES
   dm-migrations
   dm-postgres-adapter
   dm-sqlite-adapter
+  omniauth
   omniauth-twitter
   pg
   rack-flash
