@@ -2,7 +2,7 @@
 require 'sinatra'
 require 'dm-core'
 require 'dm-migrations'
-
+require 'omniauth-oauth'
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/data2.db")
 
 class User
