@@ -50,8 +50,7 @@ get '/auth/:name/callback' do
   redirect '/all'
 end
 
-# aany of the following routes should work to sign the user in: 
-#   /sign_up, /signup, /sign_in, /signin, /log_in, /login
+# /sign_up, /signup, /sign_in, /signin, /log_in, /login
 ["/sign_in/?", "/signin/?", "/log_in/?", "/login/?", "/sign_up/?", "/signup/?"].each do |path|
   get path do
     redirect '/auth/twitter'
@@ -70,7 +69,6 @@ get '/' do
   if current_user
     redirect '/all'
   else
-   # '<a href="/sign_up">create an account</a> or <a href="/sign_in">sign in with Twitter</a>'
     redirect '/home'
   end
 end
@@ -80,7 +78,6 @@ post '/' do
   n.content = params[:content]
   n.created_at = Time.now
   n.updated_at = Time.now
-  puts "USER WAS :: #{params[:user]}"
   n.user_id = params[:user]
   n.save
   redirect '/all'
@@ -100,19 +97,18 @@ get '/home' do
 end
 
 get '/books' do
-  @notes = Note.all(:user_id => current_user.id) & Note.all(:content.downcase.like => '%book%')
+  @notes = Note.all(:user_id => current_user.id) & Note.all(:content.like => '%book%')
   @title = 'Books you want to read.'
   erb :books
 end
 
 get '/movies' do
-  @notes = Note.all(:user_id => current_user.id) & Note.all(:content.downcase.like => '%movie%')
+  @notes = Note.all(:user_id => current_user.id) & Note.all(:content.like => '%movie%')
   @title = 'Movies you want to see.'
   erb :movies
 end
 
 get '/all' do
-  puts "Curren user is #{current_user.id}"
   @notes = Note.all(:conditions => { :user_id => current_user.id })  
   @title = "All notes"
   erb :all
@@ -145,7 +141,7 @@ get '/:id/complete' do
 end
 
 get '/about' do
-  'Muxnote is a simplified mobile app to track movies you want to see and books you want to read.'
+  'Muxnote is a simplified mobile web-app to track movies you want to see and books you want to read.'
 end
 
 not_found do  

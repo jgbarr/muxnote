@@ -1,7 +1,8 @@
-<section id="add">
+<section>
   <form action="/" method="post">
-    <textarea name="content" placeholder='Add a title and the word "movie"&hellip;'></textarea>
-    <input class="myButton" type="submit" value="ADD">
+    <input type="text" id="regularInput" class="add" name="content" style-"width: 100px;" placeholder='Add a title and the word "book" or "movie"&hellip;'></input>
+    <input type="hidden" name= "user" value=<%= current_user.id %>></input>
+    <button class="full-width-button" type="submit">ADD</button>
   </form>
 </section>
 <% @notes.each do |note| %>

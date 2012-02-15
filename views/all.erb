@@ -1,8 +1,8 @@
-<section id="add">
+<section>
   <form action="/" method="post">
-   <textarea id="regularInput" name="content" placeholder='Add a title and the word "book" or "movie"&hellip;'></textarea>
+   <input type="text" id="regularInput" class="add" name="content" style-"width: 100px;" placeholder='Add a title and the word "book" or "movie"&hellip;'></input>
      <input type="hidden" name= "user" value=<%= current_user.id %>></input>
-     <button type="submit">ADD</button>
+     <button class="full-width-button" type="submit">ADD</button>
   </form>
 </section>
 <% @notes %>
@@ -11,7 +11,7 @@
     <p>
       <%= note.content %>
     </p>
-    <p class="links"><a href="/<%= note.id %>/complete">&#8623;</a></p>
+    <p class="links"><a href="/<%= note.id %>/complete">⊗</a></p>
     <% if note.content.downcase =~ /book/ %>
     <p class="icons"><a href="/<%= note.id %>/edit"><img src="/images/book.png"></a></p>
     <% else %>
