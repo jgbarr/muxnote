@@ -2,6 +2,7 @@
 require 'sinatra'
 require 'dm-core'
 require 'dm-migrations'
+require 'oa-oauth'
 #require 'omniauth'
 #require 'omniauth-twitter'
 #gem 'twitter'
