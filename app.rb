@@ -45,7 +45,7 @@ end
 
 get '/auth/:name/callback' do
   auth = request.env['omniauth.auth']
-  puts auth
+  puts "AUTH:: #{auth}"
   user = User.first_or_create({ :uid => auth["uid"]}, {
   :uid => auth["uid"],
   :name => auth["user_info"]["name"],
