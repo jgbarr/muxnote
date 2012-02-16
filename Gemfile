@@ -5,8 +5,7 @@ gem 'dm-core'
 gem 'dm-migrations'
 gem 'rack-flash'
 gem 'omniauth-twitter'
-gem 'omniauth'
-gem 'twitter'
+gem "omniauth", ">= 1.0.2"
 
 group :development do
   gem 'dm-sqlite-adapter'
