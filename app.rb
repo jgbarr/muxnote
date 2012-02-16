@@ -57,6 +57,10 @@ get '/auth/:name/callback' do
 #  redirect '/all'
 end
 
+get '/auth/failure' do
+  puts "MESSAGE= #{params[:message]}"
+end
+
 # /sign_up, /signup, /sign_in, /signin, /log_in, /login
 ["/sign_in/?", "/signin/?", "/log_in/?", "/login/?", "/sign_up/?", "/signup/?"].each do |path|
   get path do
