@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'dm-core'
 require 'dm-migrations'
-require 'omnitauth'
+require 'omniauth'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/data2.db")
 
