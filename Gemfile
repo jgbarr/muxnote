@@ -6,6 +6,7 @@ gem 'dm-migrations'
 gem 'rack-flash'
 gem 'omniauth-twitter'
 gem 'omniauth'
+gem 'twitter'
 
 group :development do
   gem 'dm-sqlite-adapter'
