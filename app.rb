@@ -1,10 +1,10 @@
-%w(rubygems oa-oauth dm-core dm-migrations sinatra).each { |dependency| require dependency }
-require 'sinatra'
+#%w(rubygems oa-oauth dm-core dm-migrations sinatra).each { |dependency| require dependency }
+%w(rubygems dm-core dm-migrations sinatra).each { |dependency| require dependency }
 require 'dm-core'
 require 'dm-migrations'
 #require 'omniauth/oauth'
-#require 'omniauth'
-#require 'omniauth-twitter'
+require 'omniauth'
+require 'omniauth-twitter'
 #gem 'twitter'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/data2.db")
