@@ -1,8 +1,8 @@
-%w(rubygems oa-oauth dm-core dm-sqlite-adapter dm-migrations sinatra).each { |dependency| require dependency }
+%w(rubygems dm-core dm-sqlite-adapter dm-migrations sinatra).each { |dependency| require dependency }
 require 'sinatra'
 require 'dm-core'
 require 'dm-migrations'
-require 'oa-oauth'
+require 'omniauth/oauth'
 #require 'omniauth'
 #require 'omniauth-twitter'
 #gem 'twitter'
