@@ -45,15 +45,15 @@ end
 get '/auth/:name/callback' do
   auth = request.env['omniauth.auth']
   puts "AUTH WAS:: #{auth}"
-  
-  user = User.first_or_create({ :uid => auth["uid"]}, {
-  :uid => auth["uid"],
-  :name => auth["user"]["name"],
-  :nickname => auth["user"]["nickname"],
-  :created_at => Time.now })
-  puts "USER WAS:: #{user}"
-  session[:user_id] = user.id
-  redirect '/all'
+  puts "AUTH NAME:: #{auth['user']['name']}"
+#  user = User.first_or_create({ :uid => auth["uid"]}, {
+#  :uid => auth["uid"],
+#  :name => auth["user"]["name"],
+#  :nickname => auth["user"]["nickname"],
+#  :created_at => Time.now })
+#  puts "USER WAS:: #{user}"
+#  session[:user_id] = user.id
+#  redirect '/all'
 end
 
 # /sign_up, /signup, /sign_in, /signin, /log_in, /login
