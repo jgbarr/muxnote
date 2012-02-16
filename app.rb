@@ -48,8 +48,8 @@ get '/auth/:name/callback' do
   
   user = User.first_or_create({ :uid => auth["uid"]}, {
   :uid => auth["uid"],
-  :name => auth["user_info"]["name"],
-  :nickname => auth["user_info"]["nickname"],
+  :name => auth["user"]["name"],
+  :nickname => auth["user"]["nickname"],
   :created_at => Time.now })
   puts "USER WAS:: #{user}"
   session[:user_id] = user.id
