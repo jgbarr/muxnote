@@ -31,7 +31,7 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-use OmniAuth::Strategies::Twitter, 'l0kAScjfkrGN970LCRcwg', 'F5B5BZQCxcJGFts0OPAVmBCwQJYwUOpBJjT12oT5CA'
+use OmniAuth::Strategies::Twitter, '7GzU3l3ddoHyetKfEm1BAw', 'agQuPgeOiMBDMNZnxXsGwRaMuw4L3yURvC7gU9NzI8'
 
 enable :sessions
 
