@@ -1,4 +1,3 @@
-#%w(rubygems omniauth/oauth).each { |dependency| require dependency }
 require 'sinatra'
 require 'dm-core'
 require 'dm-migrations'
@@ -31,7 +30,7 @@ end
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
-use OmniAuth::Strategies::Twitter, :twitter_key => ENV['TWITTER_KEY'], :twitter_secret => ENV['TWITTER_SECRET']
+use OmniAuth::Strategies::Twitter, TWITTER_KEY, TWITTER_SECRET
 
 enable :sessions
 
