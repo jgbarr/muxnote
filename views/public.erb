@@ -1,0 +1,12 @@
+<% @results %>
+<% @results.each do |r| %>
+  <article>
+    <p>
+      <%= r.text %>
+    </p>
+            <p class="meta">
+                                <img src="<%= r.profile_image_url %>" />
+            <a href="http://twitter.com/<%= r.from_user %>" style="color: #000;"><%= r.from_user_name %></a>
+            </p>
+  </article>
+<% end %>

@@ -89,7 +89,7 @@ post '/' do
 end
 
 get '/public' do
-  @results = Twitter.search("#sweet -rt", :rpp => 20)
+  @results = Twitter.search("#muxnote -rt", :rpp => 20)
   erb :public
 end
 
