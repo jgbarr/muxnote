@@ -88,6 +88,11 @@ post '/' do
   redirect '/all'
 end
 
+get '/public' do
+  @results = Twitter.search("#sweet -rt", :rpp => 20)
+  erb :public
+end
+
 put '/:id' do
   n = Note.get params[:id]
   n.content = params[:content]

@@ -15,7 +15,7 @@
     <% if note.content.downcase =~ /book/ %>
     <p class="icons"><a href="/<%= note.id %>/edit"><img src="/images/book.png"></a></p>
     <% else %>
-    <p class="icons"><aa href="/<%= note.id %>/edit"><img src="/images/movie.png"></a></p>
+    <p class="icons"><a href="/<%= note.id %>/edit"><img src="/images/movie.png"></a></p>
     <% end %>
     <p class="meta">Created: <%= note.created_at %> in: </p>  
   </article>
