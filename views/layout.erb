@@ -50,11 +50,10 @@ a, a:hover, a:visited {
   <div class="sixteen columns">
     <h1 class="remove-bottom" style="margin-top: 10px"><a href="/"><img src="images/logo.png" /></a></h1>
     <% if current_user %>
-    <h3>Signed into Twitter as: <%= current_user.nickname %> | <a href="/signout">Sign Out</a> | <a href="/books">Only books</a> | <a href="movies">Only movies</a></h3>
+    <h3>Signed into Twitter as: <%= current_user.nickname %> | <a href="/signout">Sign Out</a> | <a href="/books">Only books</a> | <a href="movies">Only movies</a> | <a href="/public">Other Twitter users using #muxnote</a></h3>
     <% else %>
     <h5><a href="/signin">Sign In</a></h5>
     <% end %>
-    <h3><a href="/public">Other Twitter users using #muxnote</a></h3>
     <br />
 </div>
   <div class="sixteen columns">
