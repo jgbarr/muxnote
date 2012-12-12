@@ -1,1 +1,2 @@
-muxnote
+Muxnote: to start sinatra, run ruby -rubygems app.rb
+replace ENV variables with local test variables to test locally
